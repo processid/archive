@@ -1,8 +1,8 @@
 {
-    "name": "ProcessID/Archive",
+    "name": "processid/archive",
     "description": "Archiving in ZIP or ZIP64 with DEFLATE, BZIP2 or STORE compression",
     "require": {
         "php": "^5.3",
-        "ProcessID/Compress": "1.*"
+        "processid/compress": "1.*"
     }
 }
