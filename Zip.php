@@ -30,10 +30,10 @@
    // ----------------------------
    // finalizeArchive()
    
-   namespace ProcessID\Archive;
+   namespace processid\archive;
    
-   use \ProcessID\Compress\Bzip2;
-   use \ProcessID\Compress\Deflate;
+   use \processid\compress\Bzip2;
+   use \processid\compress\Deflate;
    
    class zip {
       protected $_zip64;
