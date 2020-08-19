@@ -3,7 +3,7 @@
    // -------------------
    // -- Instanciation --
    // -------------------
-   // $obj = new Compress($method, $onTheFly, $out, $filename);
+   // $obj = new zip($method, $onTheFly, $out, $filename);
    // $method : STORE | DEFLATE | BZIP2
    // $onTheFly : FALSE | TRUE (Si TRUE, l'archive est remplie à chaque appel de addFile(), sinon elle est remplie lors de l'appel de createArchive())
    // $out : STDOUT | FILE
@@ -35,7 +35,7 @@
    use \processid\compress\Bzip2;
    use \processid\compress\Deflate;
    
-   class zip {
+   class Zip {
       protected $_zip64;
       protected $_offsetLocalFileHeader;
       protected $_sizeCentralDirectory;
