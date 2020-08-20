@@ -48,6 +48,7 @@
       protected $_outFilePointer;
       protected $_onTheFly;
       protected $_compressionLevel;
+      protected $_totalFilesize;
       
       // Constantes de méthode de compression ($_method)
       const STORE = 1;
@@ -75,6 +76,7 @@
          $this->centralDirectoryString = '';
          $this->arrayFiles = array();
          $this->setCompressionLevel(4);
+         $this->totalFilesize = 0;
       }
       
       function zip64() {
@@ -174,6 +176,8 @@
             $filesize = filesize($file);
             $filesize64 = $this->convert64to32($filesize);
             
+            $this->totalFilesize += $filesize;
+            
             // Compression
             if ($this->method == self::BZIP2 || $this->method == self::DEFLATE) {
                if ($this->method == self::BZIP2) {
@@ -202,7 +206,6 @@
             
             // Mise en forme du nom du fichier
             if (!strlen($filename)) {
-               //$filename = basename($file);
                $filename = $file;
             }
             $encoded_filename = iconv("UTF-8","IBM850 //IGNORE",$filename);
@@ -388,7 +391,10 @@
       }
       
       function finalizeArchive() {
-         if ($this->nbFiles >= 0xffffffff) {
+         if ($this->nbFiles >= 0xffff) {
+            $this->zip64 = true;
+         }
+         if ($this->totalFilesize >= 0xffffffff) {
             $this->zip64 = true;
          }
          
@@ -429,8 +435,8 @@
          }
          
          // Préparation du End of central directory record
-         if ($this->nbFiles >= 0xffffffff) {
-            $use_count_files = 0xffffffff;
+         if ($this->nbFiles >= 0xffff) {
+            $use_count_files = 0xffff;
          } else {
             $use_count_files = $this->nbFiles;
          }
