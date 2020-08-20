@@ -265,7 +265,7 @@
             $chaine .= pack('v', $filename_length);        // File name length (n)
             if ($extra_field_length_local) {
                $extra_field_length_local += 4;
-               $flag_zip64 = true;
+               $this->zip64 = true;
             }
             $chaine .= pack('v', $extra_field_length_local);        // Extra field length (m)
             $chaine .= $encoded_filename;    // Filename
