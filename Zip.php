@@ -187,7 +187,7 @@ class Zip {
                 $this->arrayRenamedDuplicateFiles[$filename]++;
                 // Le fichier existe dans le même dossier, on le renomme
                 $extension = pathinfo($filename, PATHINFO_EXTENSION);
-                $filename = substr($filename,0,strlen($filename)-strlen($extension)) . '-' . $this->arrayRenamedDuplicateFiles[$filename] . '.' . $extension;
+                $filename = substr($filename,0,strlen($filename)-strlen($extension)-1) . '-' . $this->arrayRenamedDuplicateFiles[$filename] . $extension;
             } else {
                 $this->arrayRenamedDuplicateFiles[$filename] = 0;
             }
