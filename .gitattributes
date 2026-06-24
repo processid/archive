@@ -1,0 +1,5 @@
+# Fichiers de dev exclus de l'archive distribuée par Composer (dist)
+/.gitignore     export-ignore
+/.gitattributes export-ignore
+/.idea          export-ignore
+/.vscode        export-ignore

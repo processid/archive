@@ -1,0 +1,22 @@
+# Dépendances Composer
+/vendor/
+composer.lock
+
+# JetBrains (PhpStorm / IntelliJ)
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*.stackdump
+
+# Éditeurs / fichiers temporaires
+*.swp
+*~
+*.bak
+*.log
