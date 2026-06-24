@@ -41,21 +41,22 @@ use \processid\compress\Bzip2;
 use \processid\compress\Deflate;
 
 class Zip {
-    protected $_zip64;
-    protected $_offsetLocalFileHeader;
-    protected $_sizeCentralDirectory;
-    protected $_nbFiles;
-    protected $_centralDirectoryString;
-    protected $_arrayFiles;
-    protected $_method;
-    protected $_out;
-    protected $_tmpFile;
-    protected $_outFilePointer;
-    protected $_onTheFly;
-    protected $_compressionLevel;
-    protected $_totalFilesize;
-    protected $_renameDuplicateFiles;
-    protected $_arrayRenamedDuplicateFiles;
+    protected $zip64;
+    protected $offsetLocalFileHeader;
+    protected $sizeCentralDirectory;
+    protected $nbFiles;
+    protected $centralDirectoryString;
+    protected $arrayFiles;
+    protected $method;
+    protected $out;
+    protected $tmpFile;
+    protected $outFilePointer;
+    protected $onTheFly;
+    protected $compressionLevel;
+    protected $totalFilesize;
+    protected $renameDuplicateFiles;
+    protected $arrayRenamedDuplicateFiles;
+    protected $filename;
 
     // Constantes de méthode de compression ($_method)
     const STORE = 1;
